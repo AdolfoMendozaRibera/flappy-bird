@@ -22,9 +22,14 @@ Un motor gráfico 2D minimalista y clon de Flappy Bird construido desde cero uti
 *   **Librerías:** LWJGL 3 (Lightweight Java Game Library) - OpenGL, GLFW.
 *   **Gestor de Dependencias:** Maven
 *   **Arquitectura:** 
-    *   `Renderer.java`: Capa de abstracción de bajo nivel. El "Escultor y Pintor". Gestiona la memoria de la GPU y los Shaders.
-    *   `Main.java`: Máquina de estados (INICIO, JUGANDO, GAME_OVER) y Game Loop.
-    *   `Bird.java` & `PipeManager.java`: Entidades del juego con lógica matemática (como la rotación orbital usando matrices 2D).
+    *   `Main.java`: Máquina de estados principal (INICIO, JUGANDO, GAME_OVER) y controlador del Game Loop.
+    *   `Renderer.java`: Capa de abstracción de bajo nivel de OpenGL. Gestiona la memoria de la GPU (VAO/VBO), compila Shaders y dibuja las primitivas.
+    *   `Bird.java`: Entidad principal del jugador. Maneja sus propias físicas (gravedad, impulso), rotación orbital y sistema de dibujo procedural de sus partes.
+    *   `PipeManager.java`: Gestor de obstáculos. Controla la lógica de generación, colisiones AABB, y sistema de puntuación.
+    *   `HudRenderer.java`: Motor de texto retro y visualización de la interfaz (puntajes, mensajes). Usa matrices de bits para dibujar cada letra.
+    *   `InputManager.java`: Captura de eventos del teclado mediante GLFW para controles responsivos y de una sola pulsación.
+    *   `GameState.java`: Enum simple que define los estados del juego.
+    *   `SoundManager.java`: Reproducción de efectos de sonido (salto, punto) usando *Java Sound API*.
 
 ## 🚀 Cómo Ejecutar
 
